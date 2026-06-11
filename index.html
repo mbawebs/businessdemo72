@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henko Bullys Real</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+:root{
+  --gold:#d6a13d;
+  --orange:#ff6a00;
+  --dark:#050505;
+  --gray:#121212;
+  --line:rgba(255,255,255,.13);
+}
+
+.container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  padding:22px 0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,0));
+}
+
+.nav-wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;
+  letter-spacing:3px;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.menu{
+  display:flex;
+  gap:32px;
+  font-size:.75rem;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.menu a:hover{
+  color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.78) 42%,rgba(0,0,0,.2) 100%),
+  url('hero.png') center/cover;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at 75% 45%,rgba(255,106,0,.22),transparent 32%),
+  linear-gradient(to top,#050505 0%,transparent 26%);
+}
+
+.hero-bg-text{
+  position:absolute;
+  right:-2vw;
+  bottom:8vh;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(8rem,22vw,24rem);
+  color:rgba(255,255,255,.045);
+  letter-spacing:8px;
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:4;
+  padding-top:90px;
+}
+
+.kicker{
+  color:var(--gold);
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5.5rem,15vw,14rem);
+  line-height:.78;
+  letter-spacing:5px;
+  text-shadow:0 0 35px rgba(214,161,61,.35);
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  max-width:620px;
+  color:#d8d8d8;
+  line-height:1.8;
+  font-size:1.05rem;
+  margin-top:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:36px;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px 34px;
+  border-radius:100px;
+  background:var(--gold);
+  border:1px solid var(--gold);
+  color:#000;
+  font-size:.8rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  box-shadow:0 0 30px rgba(214,161,61,.35);
+}
+
+.btn.outline{
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:none;
+}
+
+.hero-stats{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(3,160px);
+  gap:18px;
+}
+
+.stat{
+  background:rgba(255,255,255,.055);
+  border:1px solid var(--line);
+  backdrop-filter:blur(10px);
+  border-radius:18px;
+  padding:18px;
+}
+
+.stat strong{
+  display:block;
+  color:var(--gold);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.4rem;
+}
+
+.stat small{
+  color:#aaa;
+  font-size:.68rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+/* MARQUEE */
+
+.marquee{
+  overflow:hidden;
+  white-space:nowrap;
+  background:linear-gradient(90deg,var(--gold),#ff6a00);
+  color:#000;
+  padding:16px 0;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.1rem;
+  letter-spacing:3px;
+}
+
+.marquee-track{
+  display:inline-block;
+  animation:move 18s linear infinite;
+}
+
+@keyframes move{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* SECTION HEAD */
+
+.section-head{
+  margin-bottom:55px;
+}
+
+.section-head small{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-weight:900;
+}
+
+.section-head h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,9vw,9rem);
+  line-height:.85;
+  letter-spacing:4px;
+  margin-top:12px;
+}
+
+/* STUD */
+
+.stud{
+  padding:120px 0;
+  background:
+  radial-gradient(circle at 18% 28%,rgba(214,161,61,.15),transparent 30%),
+  #050505;
+}
+
+.stud-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:35px;
+  align-items:stretch;
+}
+
+.stud-photo{
+  min-height:730px;
+  border-radius:35px;
+  overflow:hidden;
+  position:relative;
+  background:url('stud.png') center/cover;
+}
+
+.stud-photo::after{
+  content:"SULTAN";
+  position:absolute;
+  left:34px;
+  bottom:28px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,11vw,11rem);
+  line-height:.8;
+  color:#fff;
+  text-shadow:0 0 30px #000;
+}
+
+.stud-info{
+  border:1px solid var(--line);
+  border-radius:35px;
+  padding:55px;
+  background:linear-gradient(145deg,#181818,#070707);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.stud-info h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:7rem;
+  line-height:.78;
+}
+
+.stud-info h3 span{
+  color:var(--gold);
+}
+
+.stud-info p{
+  color:#cfcfcf;
+  line-height:1.8;
+  margin-top:25px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
+}
+
+.tags span{
+  border:1px solid var(--line);
+  background:#0b0b0b;
+  padding:12px 18px;
+  border-radius:100px;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.mini-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:42px;
+}
+
+.mini{
+  background:#0a0a0a;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:25px;
+}
+
+.mini strong{
+  color:var(--gold);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.2rem;
+}
+
+.mini p{
+  margin:0;
+  color:#aaa;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+/* PROGRAM */
+
+.program{
+  padding:120px 0;
+  background:#0b0b0b;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.program-card{
+  min-height:450px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  padding:32px;
+  display:flex;
+  align-items:flex-end;
+  background:#111;
+}
+
+.program-card:nth-child(1){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.92),transparent),
+  url('https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?q=80&w=1200') center/cover;
+}
+
+.program-card:nth-child(2){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.92),transparent),
+  url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1200') center/cover;
+}
+
+.program-card:nth-child(3){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.92),transparent),
+  url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200') center/cover;
+}
+
+.program-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.8rem;
+  line-height:.85;
+}
+
+.program-card p{
+  margin-top:14px;
+  color:#ddd;
+  line-height:1.6;
+}
+
+/* BANNER */
+
+.banner{
+  min-height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.86)),
+  url('https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?q=80&w=1800') center/cover fixed;
+}
+
+.banner h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,13vw,13rem);
+  line-height:.78;
+  letter-spacing:5px;
+}
+
+.banner h2 span{
+  color:var(--gold);
+}
+
+/* GALLERY */
+
+.gallery{
+  padding:120px 0;
+  background:#050505;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.gallery-item{
+  height:330px;
+  border-radius:24px;
+  overflow:hidden;
+  background:#111;
+}
+
+.gallery-item.tall{
+  height:680px;
+  grid-row:span 2;
+}
+
+.gallery-item.wide{
+  grid-column:span 2;
+}
+
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
+}
+
+/* CONTACT */
+
+.contact{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.96)),
+  url('hero.png') center/cover;
+}
+
+.contact h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.8rem,12vw,12rem);
+  line-height:.78;
+  letter-spacing:4px;
+}
+
+.contact h2 span{
+  color:var(--gold);
+}
+
+.contact p{
+  max-width:650px;
+  color:#ddd;
+  line-height:1.8;
+  margin:28px auto 36px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:35px;
+  text-align:center;
+  color:#777;
+  border-top:1px solid var(--line);
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .menu{
+    display:none;
+  }
+
+  .hero{
+    min-height:100svh;
+    background-position:center;
+  }
+
+  .hero-stats{
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .stat{
+    max-width:260px;
+  }
+
+  .stud-grid,
+  .program-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stud-photo{
+    min-height:540px;
+  }
+
+  .stud-info{
+    padding:32px;
+  }
+
+  .stud-info h3{
+    font-size:5rem;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide{
+    height:420px;
+    grid-column:auto;
+    grid-row:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-wrap">
+    <div class="logo">HENKO <span>BULLYS</span></div>
+
+    <div class="menu">
+      <a href="#stud">Stud</a>
+      <a href="#program">Program</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-text">SULTAN</div>
+
+  <div class="container hero-content">
+    <div class="kicker">Exotic Bully • American Bully • Spain</div>
+
+    <h1>
+      HENKO<br>
+      <span>BULLYS</span>
+    </h1>
+
+    <p>
+      Compact exotic bully program focused on structure, presence, bloodline,
+      and powerful bully type. Home of SULTAN.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#stud" class="btn">View Sultan</a>
+      <a href="#contact" class="btn outline">Message Us</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <strong>3550</strong>
+        <small>Followers</small>
+      </div>
+
+      <div class="stat">
+        <strong>199</strong>
+        <small>Posts</small>
+      </div>
+
+      <div class="stat">
+        <strong>CN</strong>
+        <small>Bully Program</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    HENKO BULLYS • EXOTIC BULLY • AMERICAN BULLY • SULTAN • STUD SERVICE • COMPACT STRUCTURE • HENKO BULLYS • EXOTIC BULLY • AMERICAN BULLY • SULTAN • STUD SERVICE • COMPACT STRUCTURE •
+  </div>
+</div>
+
+<section class="stud" id="stud">
+  <div class="container">
+
+    <div class="section-head">
+      <small>Featured Stud</small>
+      <h2>The Main Stud</h2>
+    </div>
+
+    <div class="stud-grid">
+
+      <div class="stud-photo"></div>
+
+      <div class="stud-info">
+
+        <div>
+          <h3>SUL<br><span>TAN</span></h3>
+
+          <p>
+            SULTAN brings that compact exotic bully look with heavy presence,
+            strong structure, serious mass, and bloodline power.
+          </p>
+
+          <div class="tags">
+            <span>Exotic Bully</span>
+            <span>American Bully</span>
+            <span>Stud Service</span>
+            <span>Winner Son</span>
+            <span>Compact Structure</span>
+          </div>
+        </div>
+
+        <div class="mini-stats">
+          <div class="mini">
+            <strong>01</strong>
+            <p>Featured Stud</p>
+          </div>
+
+          <div class="mini">
+            <strong>1.5K</strong>
+            <p>Special Stud Promo</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="program" id="program">
+  <div class="container">
+
+    <div class="section-head">
+      <small>Our Program</small>
+      <h2>Built Heavy</h2>
+    </div>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <div>
+          <h3>Exotic<br>Bully</h3>
+          <p>Low, compact, wide, powerful bully type with standout presence.</p>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div>
+          <h3>Stud<br>Service</h3>
+          <p>Featured stud service available for approved females and serious programs.</p>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div>
+          <h3>Bully<br>Blood</h3>
+          <p>Focused on structure, type, mass, headpiece, and production quality.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="banner">
+  <h2>NO HYPE<br><span>JUST BULLY</span></h2>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+
+    <div class="section-head">
+      <small>Gallery</small>
+      <h2>The Yard</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?q=80&w=900">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=900">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?q=80&w=900">
+      </div>
+
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=900">
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1400">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=900">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=900">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+
+    <h2>HENKO<br><span>BULLYS</span></h2>
+
+    <p>
+      Interested in SULTAN, stud service, or future productions?
+      Message Henko Bullys directly on Instagram.
+    </p>
+
+    <a href="https://instagram.com/henkobullysreal" class="btn" target="_blank">
+      Message On Instagram
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  Henko Bullys © 2026 • Exotic Bully • American Bully • Spain
+</footer>
+
+</body>
+</html>
